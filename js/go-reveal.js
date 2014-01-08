@@ -184,7 +184,8 @@ var goreveal = (function() {
           message: userName + ' has joined.'
         };
 
-        presentation.user(function(err, user, userKey) {
+        var userKey = presentation.self();
+        userKey.get(function(err, user) {
           if (err) {
             return next(err);
           }
